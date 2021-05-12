@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 Route::get('/login',[AuthenticationController::class,'ShowLogin']);
 Route::get('/register',[AuthenticationController::class,'ShowRegister']);
+Route::post('/register/add-account',[AuthenticationController::class,'AddNewAccount']);

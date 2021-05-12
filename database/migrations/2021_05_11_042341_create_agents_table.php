@@ -18,6 +18,7 @@ class CreateAgentsTable extends Migration
             $table->string('AgentNama');
             $table->string('AgentEmail');
             $table->string('AgentPassword');
+            $table->integer('AgentSaldo');
             $table->string('AgentPicturePath');
             $table->primary('AgentID');
             $table->timestamps();

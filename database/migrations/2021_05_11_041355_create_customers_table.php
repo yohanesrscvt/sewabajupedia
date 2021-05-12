@@ -18,6 +18,7 @@ class CreateCustomersTable extends Migration
             $table->string('CustomerNama');
             $table->string('CustomerEmail');
             $table->string('CustomerPassword');
+            $table->integer('CustomerSaldo');
             $table->string('CustomerPicturePath');
             $table->primary('CustomerID');
             $table->timestamps();

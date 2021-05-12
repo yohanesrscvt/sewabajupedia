@@ -7,7 +7,8 @@
     <title>Register</title>
 </head>
 <body>
-    <form action="#" method="post">
+    <form action="/register/add-account" method="post">
+        @csrf
         <label for="nama">Nama</label><br>
         <input type="text" name="nama" id="nama" required>
         <br><br>
