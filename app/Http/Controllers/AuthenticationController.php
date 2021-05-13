@@ -22,15 +22,14 @@ class AuthenticationController extends Controller
     public function AddNewAccount(Request $request){
         // declare new variables for CustomerID and AgentID
         $DigitID = rand(0,9) . '' . rand(0,9) . '' . rand(0,9) . '' . rand(0,9);
-        $GenerateCustomerID = "CUST-" . $DigitID;
-        $GenerateAgentID = "AGEN-" . $DigitID;
+        $GenerateID = "USER-" . $DigitID;
 
         // validation
         // ...
 
         // customer
         $NewCustomer = new customer();
-        $NewCustomer->CustomerID = $GenerateCustomerID;
+        $NewCustomer->CustomerID = $GenerateID;
         $NewCustomer->CustomerNama = $request->nama;
         $NewCustomer->CustomerEmail = $request->email;
         $NewCustomer->CustomerPassword = Hash::make($request->password);
@@ -40,8 +39,8 @@ class AuthenticationController extends Controller
 
         // agent
         $NewAgent = new agent();
-        $NewAgent->AgentID = $GenerateAgentID;
-        $NewAgent->AgentNama = $request->nama;
+        $NewAgent->AgentID = $GenerateID;
+        $NewAgent->AgentNama = "";
         $NewAgent->AgentEmail = $request->email;
         $NewAgent->AgentPassword = Hash::make($request->password);
         $NewAgent->AgentSaldo = 0;

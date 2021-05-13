@@ -8,6 +8,7 @@
 </head>
 <body>
     <form action="#" method="post">
+        @csrf
         <label for="email">Email</label><br>
         <input type="email" name="email" id="email" required>
         <br><br>
