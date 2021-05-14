@@ -17,9 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login',[AuthenticationController::class,'ShowLogin']);
+// learning resources : https://www.youtube.com/watch?v=ko4PU4eplnY&ab_channel=IrebeLibrary
+
 Route::post('/login/process',[AuthenticationController::class,'AccountLogin']);
-Route::get('/register',[AuthenticationController::class,'ShowRegister']);
 Route::post('/register/add-account',[AuthenticationController::class,'AddNewAccount']);
-Route::get('/dashboard',[AuthenticationController::class,'ShowDashboard']);
 Route::get('/logout',[AuthenticationController::class,'AccountLogout']);
+
+Route::get('/login',[AuthenticationController::class,'ShowLogin'])->middleware('IsLogged');;
+Route::get('/register',[AuthenticationController::class,'ShowRegister'])->middleware('IsLogged');;
+
+Route::get('/dashboard',[AuthenticationController::class,'ShowDashboard'])->middleware('AuthenticationValidation');
