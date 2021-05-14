@@ -7,7 +7,7 @@
     <title>Login</title>
 </head>
 <body>
-    <form action="#" method="post">
+    <form action="/login/process" method="post">
         @csrf
         <label for="email">Email</label><br>
         <input type="email" name="email" id="email" required>

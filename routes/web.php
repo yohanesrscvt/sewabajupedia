@@ -18,5 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/login',[AuthenticationController::class,'ShowLogin']);
+Route::post('/login/process',[AuthenticationController::class,'AccountLogin']);
 Route::get('/register',[AuthenticationController::class,'ShowRegister']);
 Route::post('/register/add-account',[AuthenticationController::class,'AddNewAccount']);
+Route::get('/dashboard',[AuthenticationController::class,'ShowDashboard']);
+Route::get('/logout',[AuthenticationController::class,'AccountLogout']);

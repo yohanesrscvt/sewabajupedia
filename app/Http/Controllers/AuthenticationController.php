@@ -20,6 +20,10 @@ class AuthenticationController extends Controller
         return view('authentication-form\register');
     }
 
+    public function ShowDashboard(){
+        return view('dashboard');
+    }
+
     public function AddNewAccount(Request $request){
         // declare new variables for CustomerID and AgentID
         $DigitID = rand(0,9) . '' . rand(0,9) . '' . rand(0,9) . '' . rand(0,9);
@@ -70,6 +74,31 @@ class AuthenticationController extends Controller
             // return result
             if($InsertSuccess == 2) return redirect('/login');
             else return back()->with('fail','Something wrong, please try again later :(');
+        }
+    }
+    
+    public function AccountLogin(Request $request){
+        // default login role -> customer
+        // customer and agent have same id and email
+        // reference : https://www.youtube.com/watch?v=UGW01ttsfpQ&ab_channel=IrebeLibrary
+
+        $CustomerLogin = customer::where('CustomerEmail','=',$request->email)->first();
+        if($CustomerLogin){
+            if(Hash::check($request->password,$CustomerLogin->CustomerPassword)){
+                $request->session()->put('LoginID','CustomerID');
+                return redirect('/dashboard');
+            }
+            else{
+                return back()->with('fail','Invalid input');
+            }
+        }
+        else return back()->with('fail','Account does not exists');
+    }
+    public function AccountLogout(){
+        // reference : https://www.youtube.com/watch?v=UGW01ttsfpQ&ab_channel=IrebeLibrary
+        if(session()->has('LoginID')){
+            session()->pull('LoginID');
+            return redirect('/login');
         }
     }
 }
