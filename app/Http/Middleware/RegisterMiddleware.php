@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AuthenticationMiddleware
+class RegisterMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,8 @@ class AuthenticationMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        // logout condition
-        if(!session()->has('LoginID') && !session()->has('UserRole') && $request->path() != '/login' && $request->path() !='/register'){
-            return redirect('/login')->with('fail','You have to log in into system');
+        if(session()->has('LoginID') && session()->has('UserRole')){
+            return back();
         }
         return $next($request);
     }
