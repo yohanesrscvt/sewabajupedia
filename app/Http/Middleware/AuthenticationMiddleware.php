@@ -20,17 +20,9 @@ class AuthenticationMiddleware
         if(!session()->has('LoginID') && !session()->has('UserRole') && $request->path() != '/login' && $request->path() !='/register'){
             return redirect('/login')->with('fail','You have to log in into system');
         }
-        else if(!session()->has('LoginID') && !session()->has('UserRole')){
-            if($request->path() == '/login') return redirect('/login');
-            else if($request->path() == '/register') return redirect('/register');
-        }
 
-        // user logged in , then user can't access login or register page
-        if(session()->has('LoginID') && session()->has('UserRole')){
-            if($request->path() == '/login' || $request->path() == '/register'){
-                return back();
-            }
-        }
+        // disini letak permasalahannya
+        if(session()->has('LoginID') && session()->has('UserRole') && ($request->path() == '/login' || $request->path() == '/register')) return back();
         return $next($request);
     }
 }
