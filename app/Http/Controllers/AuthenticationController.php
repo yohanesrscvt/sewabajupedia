@@ -20,8 +20,12 @@ class AuthenticationController extends Controller
         return view('authentication-form\register');
     }
 
-    public function ShowDashboard(){
-        return view('dashboard');
+    public function ShowCustomerDashboard(){
+        return view('customer-role\dashboard');
+    }
+
+    public function ShowAgentDashboard(){
+        return view('agent-role\dashboard');
     }
 
     public function AddNewAccount(Request $request){
@@ -85,8 +89,9 @@ class AuthenticationController extends Controller
         $CustomerLogin = customer::where('CustomerEmail','=',$request->email)->first();
         if($CustomerLogin){
             if(Hash::check($request->password,$CustomerLogin->CustomerPassword)){
-                $request->session()->put('LoginID','CustomerID');
-                return redirect('/dashboard');
+                session()->put('LoginID',$CustomerLogin->CustomerID);
+                session()->put('UserRole','Customer'); // default login as customer (session)
+                return redirect('/dashboard/customer');
             }
             else{
                 return back()->with('fail','Invalid input');
@@ -96,8 +101,9 @@ class AuthenticationController extends Controller
     }
     public function AccountLogout(){
         // reference : https://www.youtube.com/watch?v=UGW01ttsfpQ&ab_channel=IrebeLibrary
-        if(session()->has('LoginID')){
+        if(session()->has('LoginID') && session()->has('UserRole')){
             session()->pull('LoginID');
+            session()->pull('UserRole');
             return redirect('/login');
         }
     }

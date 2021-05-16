@@ -23,7 +23,8 @@ Route::post('/login/process',[AuthenticationController::class,'AccountLogin']);
 Route::post('/register/add-account',[AuthenticationController::class,'AddNewAccount']);
 Route::get('/logout',[AuthenticationController::class,'AccountLogout']);
 
-Route::get('/login',[AuthenticationController::class,'ShowLogin'])->middleware('IsLogged');;
-Route::get('/register',[AuthenticationController::class,'ShowRegister'])->middleware('IsLogged');;
-
-Route::get('/dashboard',[AuthenticationController::class,'ShowDashboard'])->middleware('AuthenticationValidation');
+// group1
+Route::get('/login',[AuthenticationController::class,'ShowLogin'])->middleware('AuthenticationMiddleware');
+Route::get('/register',[AuthenticationController::class,'ShowRegister'])->middleware('AuthenticationMiddleware');
+Route::get('/dashboard/customer',[AuthenticationController::class,'ShowCustomerDashboard'])->middleware('AuthenticationMiddleware');
+Route::get('/dashboard/agent',[AuthenticationController::class,'ShowAgentDashboard'])->middleware('AuthenticationMiddleware');
