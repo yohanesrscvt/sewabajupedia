@@ -102,8 +102,8 @@ class AuthenticationController extends Controller
     public function AccountLogout(){
         // reference : https://www.youtube.com/watch?v=UGW01ttsfpQ&ab_channel=IrebeLibrary
         if(session()->has('LoginID') && session()->has('UserRole')){
-            // session()->pull('LoginID');
-            // session()->pull('UserRole');
+            session()->pull('LoginID');
+            session()->pull('UserRole');
             session()->flush();
             return redirect('/login');
         }

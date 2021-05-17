@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\ChangeRoleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,5 +26,9 @@ Route::get('/logout',[AuthenticationController::class,'AccountLogout']);
 
 Route::get('/login',[AuthenticationController::class,'ShowLogin'])->middleware('LoginMiddleware');
 Route::get('/register',[AuthenticationController::class,'ShowRegister'])->middleware('RegisterMiddleware');
-Route::get('/dashboard/customer',[AuthenticationController::class,'ShowCustomerDashboard'])->middleware('AuthenticationMiddleware');
-Route::get('/dashboard/agent',[AuthenticationController::class,'ShowAgentDashboard'])->middleware('AuthenticationMiddleware');
+Route::get('/dashboard/customer',[AuthenticationController::class,'ShowCustomerDashboard'])->middleware(['AuthenticationMiddleware','CustomerRoleMiddleware']);
+Route::get('/dashboard/agent',[AuthenticationController::class,'ShowAgentDashboard'])->middleware(['AuthenticationMiddleware','AgentRoleMiddleware']);
+
+// change user role
+Route::get('/set_customer',[ChangeRoleController::class,'SetRoleToCustomer']);
+Route::get('/set_agent',[ChangeRoleController::class,'SetRoleToAgent']);
