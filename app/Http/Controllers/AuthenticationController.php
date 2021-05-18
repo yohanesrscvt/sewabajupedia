@@ -21,10 +21,14 @@ class AuthenticationController extends Controller
     }
 
     public function ShowCustomerDashboard(){
+        // fetch data function
+        // ...
         return view('customer-role\dashboard');
     }
 
     public function ShowAgentDashboard(){
+        // fetch data function
+        // ...
         return view('agent-role\dashboard');
     }
 
