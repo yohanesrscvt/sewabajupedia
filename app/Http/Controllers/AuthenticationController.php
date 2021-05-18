@@ -22,14 +22,18 @@ class AuthenticationController extends Controller
 
     public function ShowCustomerDashboard(){
         // fetch data function
-        // ...
-        return view('customer-role\dashboard');
+        $CustomerData = DB::table('customers')
+                        ->where('CustomerID',session()->get('LoginID'))
+                        ->get();
+        return view('customer-role\dashboard',['CustomerData' => $CustomerData]);
     }
 
     public function ShowAgentDashboard(){
         // fetch data function
-        // ...
-        return view('agent-role\dashboard');
+        $AgentData = DB::table('agents')
+                        ->where('AgentID',session()->get('LoginID'))
+                        ->get();
+        return view('agent-role\dashboard',['AgentData' => $AgentData]);
     }
 
     public function AddNewAccount(Request $request){
@@ -70,7 +74,7 @@ class AuthenticationController extends Controller
             // insert agent's data
             $NewAgent = new agent();
             $NewAgent->AgentID = $GenerateID;
-            $NewAgent->AgentNama = "";
+            $NewAgent->AgentNama = "$request->nama";
             $NewAgent->AgentEmail = $request->email;
             $NewAgent->AgentPassword = $HashPassword;
             $NewAgent->AgentSaldo = 0;

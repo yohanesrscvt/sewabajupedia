@@ -8,8 +8,11 @@
 </head>
 <body>
     <h1>This is Agent Dashboard</h1><br>
-    <img src="" alt="User Profile Image"><br>
-    <p>Saldo: null</p><br>
+    
+    @foreach($AgentData as $a)
+        <img src='{{$a->AgentPicturePath}}' alt="User Profile Image"><br>
+        <p>Saldo: {{$a->AgentSaldo}}</p><br>
+    @endforeach
 
     <!-- change role -->
     <select name="role" id="role" onchange="location = this.value;" autofocus>
