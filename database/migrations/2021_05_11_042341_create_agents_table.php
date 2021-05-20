@@ -18,8 +18,10 @@ class CreateAgentsTable extends Migration
             $table->string('AgentNama');
             $table->string('AgentEmail')->unique();
             $table->string('AgentPassword');
+            $table->string('AgentPhone');
             $table->integer('AgentSaldo');
             $table->string('AgentPicturePath');
+            $table->string('AgentAlamat');
             $table->primary('AgentID');
             $table->timestamps();
         });

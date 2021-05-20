@@ -7,6 +7,14 @@
     <title>Delele Akun</title>
 </head>
 <body>
-    
+    <form action="/profile/delete/execution" method="post">
+        <label for="password">Password</label><br>
+        <input type="password" name="password" id="password" required>
+        <br><br>
+        <label for="confirm_password">Confirm Password</label><br>
+        <input type="password" name="confirm_password" id="confirm_password" required>
+        <br><br>
+        <input type="submit" value="Delete Profile">
+    </form>
 </body>
 </html>

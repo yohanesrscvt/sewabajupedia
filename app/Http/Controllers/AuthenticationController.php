@@ -65,8 +65,10 @@ class AuthenticationController extends Controller
             $NewCustomer->CustomerNama = $request->nama;
             $NewCustomer->CustomerEmail = $request->email;
             $NewCustomer->CustomerPassword = $HashPassword;
+            $NewCustomer->CustomerPhone = "";
             $NewCustomer->CustomerSaldo = 0;
             $NewCustomer->CustomerPicturePath = "";
+            $NewCustomer->CustomerAlamat = "";
             $CustomerAddAccountStatus = $NewCustomer->save();
 
             if($CustomerAddAccountStatus) $InsertSuccess++;
@@ -74,11 +76,13 @@ class AuthenticationController extends Controller
             // insert agent's data
             $NewAgent = new agent();
             $NewAgent->AgentID = $GenerateID;
-            $NewAgent->AgentNama = "$request->nama";
+            $NewAgent->AgentNama = $request->nama;
             $NewAgent->AgentEmail = $request->email;
             $NewAgent->AgentPassword = $HashPassword;
+            $NewAgent->AgentPhone = "";
             $NewAgent->AgentSaldo = 0;
             $NewAgent->AgentPicturePath = "";
+            $NewAgent->AgentAlamat = "";
             $AgentAddAccountStatus = $NewAgent->save();
 
             if($AgentAddAccountStatus) $InsertSuccess++;

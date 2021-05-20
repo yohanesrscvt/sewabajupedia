@@ -8,11 +8,14 @@
 </head>
 <body>
     <h1>Profile</h1>
-    <p>Nama: <i>null</i></p><br>
-    <p>Email: <i>null</i></p><br>
-    <p>No telp: <i>null</i></p><br>
-    <p>Saldo: <i>null</i></p><br>
-    <a href="">Edit akun saya</a><br>
-    <a href="">Hapus akun saya</a><br>
+    
+    @foreach($UserData as $ud)
+        <p>Nama: {{$ud->CustomerNama}}</p><br>
+        <p>Email: {{$ud->CustomerEmail}}</p><br>
+        <p>No telp: {{$ud->CustomerPhone}}</p><br>
+        <p>Saldo: {{$ud->CustomerSaldo}}</p><br>
+        <a href="">Edit akun saya</a><br>
+        <a href="">Hapus akun saya</a><br>
+    @endforeach
 </body>
 </html>
