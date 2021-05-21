@@ -8,6 +8,7 @@
 </head>
 <body>
     <form action="/profile/delete/execution" method="post">
+        @csrf
         <label for="password">Password</label><br>
         <input type="password" name="password" id="password" required>
         <br><br>
