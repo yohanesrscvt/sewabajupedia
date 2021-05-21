@@ -14,6 +14,7 @@
         <p>Email: {{$ud->CustomerEmail}}</p><br>
         <p>No telp: {{$ud->CustomerPhone}}</p><br>
         <p>Saldo: {{$ud->CustomerSaldo}}</p><br>
+        <img src="{{asset('storage/' . $ud->CustomerPicturePath)}}" alt="">
         <a href="">Edit akun saya</a><br>
         <a href="">Hapus akun saya</a><br>
     @endforeach

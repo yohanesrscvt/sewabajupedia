@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\DB; // DB
 use Illuminate\Support\Facades\Hash; // hashing password
+use Illuminate\Support\Facades\Storage; // upload
+use Illuminate\Http\File;// file
 
 class ProfileController extends Controller
 {
@@ -28,6 +30,9 @@ class ProfileController extends Controller
     }
 
     public function PerformEdit(Request $request){
+        $PicturePath =  $request->file_temp;
+        if($request->hasFile('file')) $PicturePath = $request->file('file')->store('profile-images');
+        
         if($request->password == "" && $request->confirm_password == ""){
             DB::table('customers')
                 ->where('CustomerID',session()->get('LoginID'))
@@ -35,6 +40,7 @@ class ProfileController extends Controller
                     'CustomerNama' => $request->nama,
                     'CustomerPhone' => $request->phone,
                     'CustomerAlamat' => $request->alamat,
+                    'CustomerPicturePath' => $PicturePath
             ]);
 
             DB::table('agents')
@@ -43,6 +49,7 @@ class ProfileController extends Controller
                     'AgentNama' => $request->nama,
                     'AgentPhone' => $request->phone,
                     'AgentAlamat' => $request->alamat,
+                    'AgentPicturePath' => $PicturePath
             ]);
         }
         
@@ -58,6 +65,7 @@ class ProfileController extends Controller
                     'CustomerNama' => $request->nama,
                     'CustomerPhone' => $request->phone,
                     'CustomerAlamat' => $request->alamat,
+                    'CustomerPicturePath' => $PicturePath,
                     'CustomerPassword' => $pwd
             ]);
 
@@ -67,6 +75,7 @@ class ProfileController extends Controller
                     'AgentNama' => $request->nama,
                     'AgentPhone' => $request->phone,
                     'AgentAlamat' => $request->alamat,
+                    'AgentPicturePath' => $PicturePath,
                     'AgentPassword' => $pwd
             ]);
         }

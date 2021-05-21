@@ -35,8 +35,8 @@ Route::get('/set_customer',[ChangeRoleController::class,'SetRoleToCustomer']);
 Route::get('/set_agent',[ChangeRoleController::class,'SetRoleToAgent']);
 
 // profile menu
-Route::get('/profile/main',[ProfileController::class,'ShowProfileMenu']);
-Route::get('/profile/edit',[ProfileController::class,'ShowEditProfileMenu']);
+Route::get('/profile/main',[ProfileController::class,'ShowProfileMenu'])->middleware('ProfileMenuMiddleware');
+Route::get('/profile/edit',[ProfileController::class,'ShowEditProfileMenu'])->middleware('ProfileMenuMiddleware');
+Route::get('/profile/delete',[ProfileController::class,'ShowDeleteProfileMenu'])->middleware('ProfileMenuMiddleware');
 Route::post('/profile/edit/execution',[ProfileController::class,'PerformEdit']);
-Route::get('/profile/delete',[ProfileController::class,'ShowDeleteProfileMenu']);
 Route::post('/profile/delete/execution',[ProfileController::class,'PerformDelete']);

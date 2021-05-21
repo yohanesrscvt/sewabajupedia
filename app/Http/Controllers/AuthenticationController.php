@@ -67,7 +67,7 @@ class AuthenticationController extends Controller
             $NewCustomer->CustomerPassword = $HashPassword;
             $NewCustomer->CustomerPhone = "";
             $NewCustomer->CustomerSaldo = 0;
-            $NewCustomer->CustomerPicturePath = "";
+            $NewCustomer->CustomerPicturePath = "profile-images/blank-profile-picture-973460_1280.png";
             $NewCustomer->CustomerAlamat = "";
             $CustomerAddAccountStatus = $NewCustomer->save();
 
@@ -81,7 +81,7 @@ class AuthenticationController extends Controller
             $NewAgent->AgentPassword = $HashPassword;
             $NewAgent->AgentPhone = "";
             $NewAgent->AgentSaldo = 0;
-            $NewAgent->AgentPicturePath = "";
+            $NewAgent->AgentPicturePath = "profile-images/blank-profile-picture-973460_1280.png";
             $NewAgent->AgentAlamat = "";
             $AgentAddAccountStatus = $NewAgent->save();
 

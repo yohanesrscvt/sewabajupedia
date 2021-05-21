@@ -7,7 +7,7 @@
     <title>Edit Profile</title>
 </head>
 <body>
-    <form action="/profile/edit/execution" method="post">
+    <form action="/profile/edit/execution" method="post" enctype="multipart/form-data">
         @csrf
         @foreach($UserData as $ud)
             <label for="nama">Nama</label><br>
@@ -19,8 +19,12 @@
             <label for="alamat">Alamat</label><br>
             <input type="text" name="alamat" id="alamat" value="{{$ud->CustomerAlamat}}" required>
             <br><br>
+            <input type="hidden" name="file_temp" value="{{$ud->CustomerPicturePath}}">
         @endforeach
-
+        <hr>
+        <p>Change Picture</p>
+        <input type="file" name="file" id="file">
+        <hr>
         <p>Change Password</p><br>
         <label for="password">Password</label><br>
         <input type="password" name="password" id="password">
