@@ -81,35 +81,4 @@ class ProfileController extends Controller
         }
         return redirect('/profile/main');
     }
-
-    public function ShowDeleteProfileMenu(){
-        return view('profile\delete');
-    }
-
-    public function PerformDelete(Request $request){
-        // validation
-        if($request->password != $request->confirm_password){
-            return back()->with('fail','The password and confirm password must match');
-        }
-        else{
-            $UserCheck = DB::table('customers')
-                        ->select('CustomerPassword')
-                        ->where('CustomerID',session()->get('LoginID'))
-                        ->get();
-            
-            // var_dump($UserCheck);
-            if(Hash::check($request->password,$UserCheck[0]->CustomerPassword)){
-                // perform delete customer
-                DB::table('customers')->where('CustomerID',session()->get('LoginID'))->delete();
-                
-                // perform delete agent
-                DB::table('agents')->where('AgentID',session()->get('LoginID'))->delete();
-
-                // logout
-                return redirect('/logout');
-            }
-            else return back()->with('fail','Password and Confirm password not match');
-        }    
-        // note: both customer and agent have same account. So we can use customer to validate
-    }
 }
