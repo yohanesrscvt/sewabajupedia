@@ -19,8 +19,25 @@
         <option value="">Agent</option>
         <option value="/set_customer">Customer</option>
     </select><br>
+    <!-- end change role -->
 
     <a href="">My Account</a><br>
     <a href="/logout">Logout</a>
+
+    <hr>
+    <br>
+    <br>
+
+    <!-- product view -->
+    <hr>
+    <img src="" alt="">
+    <p>Title</p><br>
+    <p>Rp. null/hari</p><br>
+    <p>Rating null of 5</p>
+    <a href="">Edit</a>
+    <a href="">Hapus</a>
+    <hr>
+    <!-- end product view -->
+
 </body>
 </html>

@@ -29,11 +29,17 @@ class AuthenticationController extends Controller
     }
 
     public function ShowAgentDashboard(){
-        // fetch data function
+        // agent fetch data function
         $AgentData = DB::table('agents')
                         ->where('AgentID',session()->get('LoginID'))
                         ->get();
-        return view('agent-role\dashboard',['AgentData' => $AgentData]);
+        
+        // pakaian based on agent fetch data function
+        $PakaianData =  DB::table('pakaians')
+                        ->join('agents','pakaians.AgentID','=','agents.AgentID')
+                        ->where('AgentID',session()->get('LoginID'))
+                        ->get();
+        return view('agent-role\dashboard',['AgentData' => $AgentData , 'PakaianData' => $PakaianData]);
     }
 
     public function AddNewAccount(Request $request){
