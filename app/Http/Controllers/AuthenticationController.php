@@ -37,7 +37,7 @@ class AuthenticationController extends Controller
         // pakaian based on agent fetch data function
         $PakaianData =  DB::table('pakaians')
                         ->join('agents','pakaians.AgentID','=','agents.AgentID')
-                        ->where('AgentID',session()->get('LoginID'))
+                        ->where('pakaians.AgentID',session()->get('LoginID'))
                         ->get();
         return view('agent-role\dashboard',['AgentData' => $AgentData , 'PakaianData' => $PakaianData]);
     }
@@ -89,6 +89,7 @@ class AuthenticationController extends Controller
             $NewAgent->AgentSaldo = 0;
             $NewAgent->AgentPicturePath = "profile-images/blank-profile-picture-973460_1280.png";
             $NewAgent->AgentAlamat = "";
+            $NewAgent->AgentRating = 0;
             $AgentAddAccountStatus = $NewAgent->save();
 
             if($AgentAddAccountStatus) $InsertSuccess++;

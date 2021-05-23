@@ -46,3 +46,5 @@ Route::post('/dashboard/agent/add/execution',[PakaianController::class,'PerformA
 Route::get('/dashboard/agent/edit/{id}',[PakaianController::class,'ShowEditPakaian'])->middleware('AgentRoleMiddleware');
 Route::post('/dashboard/agent/edit/execution',[PakaianController::class,'PerformEditPakaian'])->middleware('AgentRoleMiddleware');
 Route::get('/dashboard/agent/delete/{id}/execution',[PakaianController::class,'PerformDeletePakaian'])->middleware('AgentRoleMiddleware');
+
+// customer menu

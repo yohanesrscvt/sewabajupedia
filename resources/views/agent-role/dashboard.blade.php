@@ -29,14 +29,16 @@
     <br>
 
     <!-- product view -->
-    <hr>
-    <img src="" alt="">
-    <p>Title</p><br>
-    <p>Rp. null/hari</p><br>
-    <p>Rating null of 5</p>
-    <a href="">Edit</a>
-    <a href="">Hapus</a>
-    <hr>
+    @foreach($PakaianData as $pd)
+        <hr>
+        <img src="{{asset('storage/' . $pd->PakaianGambar)}}" alt="" height="50px" width="50px">
+        <p>{{$pd->PakaianNama}}</p><br>
+        <p>Rp. {{$pd->PakaianHarga}}/hari</p><br>
+        <p>Rating {{$pd->PakaianRating}} of 5</p>
+        <a href="">Edit</a>
+        <a href="">Hapus</a>
+        <hr>
+    @endforeach
     <!-- end product view -->
 
 </body>
