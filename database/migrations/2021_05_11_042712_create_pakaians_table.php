@@ -23,6 +23,7 @@ class CreatePakaiansTable extends Migration
             $table->string('PakaianGambar');
             $table->string('PakaianDeskripsi');
             $table->integer('StockQty');
+            $table->float('PakaianRating',2,1);
 
             $table->primary('PakaianID');
             $table->foreign('AgentID')->references('AgentID')->on('agents');

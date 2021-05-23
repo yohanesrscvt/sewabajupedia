@@ -22,6 +22,7 @@ class CreateAgentsTable extends Migration
             $table->integer('AgentSaldo');
             $table->string('AgentPicturePath');
             $table->string('AgentAlamat');
+            $table->float('AgentRating',2,1);
             $table->primary('AgentID');
             $table->timestamps();
         });
