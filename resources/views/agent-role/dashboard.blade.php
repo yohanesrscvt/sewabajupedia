@@ -35,8 +35,8 @@
         <p>{{$pd->PakaianNama}}</p><br>
         <p>Rp. {{$pd->PakaianHarga}}/hari</p><br>
         <p>Rating {{$pd->PakaianRating}} of 5</p>
-        <a href="">Edit</a>
-        <a href="">Hapus</a>
+        <a href="/dashboard/agent/edit/{{$pd->PakaianID}}">Edit</a>
+        <a href="/dashboard/agent/delete/{{$pd->PakaianID}}/execution">Hapus</a>
         <hr>
     @endforeach
     <!-- end product view -->

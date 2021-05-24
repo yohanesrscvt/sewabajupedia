@@ -34,4 +34,59 @@ class PakaianController extends Controller
         ]);
         return redirect('/dashboard/agent');
     }
+
+    public function ShowEditPakaian($id){
+        $PakaianData =  DB::table('pakaians')
+                        ->where('PakaianID',$id)
+                        ->where('AgentID',session()->get('LoginID'))
+                        ->get();
+        
+        $KategoriData = DB::table('kategoris')
+                        ->get();
+        
+        $SizeData = DB::table('sizes')
+                    ->get();
+        
+        return view('agent-role\edit-pakaian',['PakaianData' => $PakaianData,'Kategori' => $KategoriData,'Size' => $SizeData]);
+    }
+
+    public function PerformEditPakaian(Request $request){
+        if($request->hasFile('gambar') == false){
+            DB::table('pakaians')
+            ->where('PakaianID',$request->id)
+            ->where('AgentID',session()->get('LoginID'))
+            ->update([
+                'KategoriID' => $request->kategori,
+                'SizeID' => $request->size,
+                'PakaianNama' => $request->nama,
+                'PakaianHarga' => $request->harga,
+                'PakaianDeskripsi' => $request->deskripsi,
+                'StockQty' => $request->stock
+            ]);
+        }
+        else{
+            DB::table('pakaians')
+            ->where('PakaianID',$request->id)
+            ->where('AgentID',session()->get('LoginID'))
+            ->update([
+                'KategoriID' => $request->kategori,
+                'SizeID' => $request->size,
+                'PakaianNama' => $request->nama,
+                'PakaianHarga' => $request->harga,
+                'PakaianDeskripsi' => $request->deskripsi,
+                'StockQty' => $request->stock,
+                'PakaianGambar' => $request->file('gambar')->store('cloth-images')
+            ]);
+        }
+        return redirect('/dashboard/agent');
+    }
+
+    public function PerformDeletePakaian($id){
+        DB::table('pakaians')
+        ->where('PakaianID',$id)
+        ->where('AgentID',session()->get('LoginID'))
+        ->delete();
+
+        return redirect('/dashboard/agent');
+    }
 }
