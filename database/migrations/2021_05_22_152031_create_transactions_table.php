@@ -23,7 +23,6 @@ class CreateTransactionsTable extends Migration
             $table->string('PaymentMethodID');
             
             $table->date('TransactionDate');
-            $table->string('Alamat');
             $table->integer('Penalty');
             $table->integer('RentQty');
             $table->date('MulaiSewa');
