@@ -8,6 +8,8 @@ class ChangeRoleController extends Controller
 {
     public function SetRoleToCustomer(){
         if(session()->has('LoginID') && session()->has('UserRole') && session()->get('UserRole') == 'Agent') {
+            session()->pull('UserRole');
+            session()->flush();
             session(['UserRole' => 'Customer']);
             return redirect('/dashboard/customer');
         }
@@ -15,6 +17,8 @@ class ChangeRoleController extends Controller
 
     public function SetRoleToAgent(){
         if(session()->has('LoginID') && session()->has('UserRole') && session()->get('UserRole') == 'Customer') {
+            session()->pull('UserRole');
+            session()->flush();
             session(['UserRole' => 'Agent']);
             return redirect('/dashboard/agent');
         }
