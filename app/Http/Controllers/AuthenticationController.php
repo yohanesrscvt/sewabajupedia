@@ -25,7 +25,7 @@ class AuthenticationController extends Controller
         $CustomerData = DB::table('customers')
                         ->where('CustomerID',session()->get('LoginID'))
                         ->get();
-        return view('customer-role\dashboard',['CustomerData' => $CustomerData]);
+        return view('dashboard',['CustomerData' => $CustomerData, 'role' => 'Customer']);
     }
 
     public function ShowAgentDashboard(){
@@ -39,7 +39,7 @@ class AuthenticationController extends Controller
                         ->join('agents','pakaians.AgentID','=','agents.AgentID')
                         ->where('pakaians.AgentID',session()->get('LoginID'))
                         ->get();
-        return view('agent-role\dashboard',['AgentData' => $AgentData , 'PakaianData' => $PakaianData]);
+        return view('dashboard',['AgentData' => $AgentData , 'PakaianData' => $PakaianData, 'role' => 'Agent']);
     }
 
     public function AddNewAccount(Request $request){

@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- customer -->
-    @if() 
+    @if($role == "Customer") 
         <h1>This is Customer Dashboard</h1><br>
 
         @foreach($CustomerData as $c)
@@ -18,13 +18,15 @@
 
         <!-- change role -->
         <select name="role" id="role" onchange="location = this.value;" autofocus>
-            <option value="">Customer</option>
+            <option value="" selected>Customer</option>
             <option value="/set_agent">Agent</option>
         </select><br>
 
-        <a href="">My Account</a><br>
+        <a href="/profile/main">My Account</a><br>
         <a href="/logout">Logout</a>
-    @elseif()
+
+    <!-- agent -->
+    @elseif($role == "Agent")
         <h1>This is Agent Dashboard</h1><br>
         
         @foreach($AgentData as $a)
@@ -34,14 +36,14 @@
 
         <!-- change role -->
         <select name="role" id="role" onchange="location = this.value;" autofocus>
-            <option value="">Agent</option>
             <option value="/set_customer">Customer</option>
+            <option value="" selected>Agent</option>
         </select><br>
         <!-- end change role -->
 
-        <a href="">My Account</a><br>
+        <a href="/profile/main">My Account</a><br>
         <a href="/logout">Logout</a>
-
+        <a href="/dashboard/agent/add">Add Product</a>
         <hr>
         <br>
         <br>
