@@ -1,0 +1,44 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer{
+    font-size: 24px;
+    /* text-align: center; */
+    background-color: #0C6170;
+    height: 200px;
+    color: white;
+}
+
+.follow-link{
+    text-align: center;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.fa-facebook{
+    color: white;
+}
+
+.fa-twitter{
+    color: white;
+}
+
+.fa-instagram{
+    color: white;
+}
+
+.fa {
+    text-decoration: none;
+    padding: 25px;
+    font-size: 100px;
+    width: 50px;
+  }
+
+.copyright{
+    text-align: center;
+    margin: 5px 150px;
+    padding-top: 10px;
+    border-top: 1px solid white;
+}
+

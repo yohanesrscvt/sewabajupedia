@@ -1,0 +1,20 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: #0C6170;
+    text-align: center;
+    height: 154px;
+}
+
+header>h1{
+    padding: 3px;
+    font-size: 90px;
+    color:#A4E5E0;
+}
+
+header>p{
+    font-size:24px ;
+    color:#A4E5E0;
+}
