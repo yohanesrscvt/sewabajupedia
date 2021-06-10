@@ -54,6 +54,7 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'AuthenticationMiddleware' => \App\Http\Middleware\AuthenticationMiddleware::class,
+        'PreventBackButtonMiddleware' => \App\Http\Middleware\PreventBackButtonMiddleware::class,// custom
         'ProfileMenuMiddleware' => \App\Http\Middleware\ProfileMenuMiddleware::class,
         'LoginMiddleware' => \App\Http\Middleware\LoginMiddleware::class,
         'RegisterMiddleware' => \App\Http\Middleware\RegisterMiddleware::class,

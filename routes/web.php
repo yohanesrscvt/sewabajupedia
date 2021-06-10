@@ -28,23 +28,25 @@ Route::get('/logout',[AuthenticationController::class,'AccountLogout']);
 
 Route::get('/login',[AuthenticationController::class,'ShowLogin'])->middleware('LoginMiddleware');
 Route::get('/register',[AuthenticationController::class,'ShowRegister'])->middleware('RegisterMiddleware');
-Route::get('/dashboard/customer',[AuthenticationController::class,'ShowCustomerDashboard'])->middleware(['AuthenticationMiddleware','CustomerRoleMiddleware']);
-Route::get('/dashboard/agent',[AuthenticationController::class,'ShowAgentDashboard'])->middleware(['AuthenticationMiddleware','AgentRoleMiddleware']);
+Route::middleware(['PreventBackButtonMiddleware'])->group(function () {
+    Route::get('/dashboard/customer',[AuthenticationController::class,'ShowCustomerDashboard'])->middleware(['AuthenticationMiddleware','CustomerRoleMiddleware']);
+    Route::get('/dashboard/agent',[AuthenticationController::class,'ShowAgentDashboard'])->middleware(['AuthenticationMiddleware','AgentRoleMiddleware']);
 
-// change user role
-Route::get('/set_customer',[ChangeRoleController::class,'SetRoleToCustomer']);
-Route::get('/set_agent',[ChangeRoleController::class,'SetRoleToAgent']);
+    // change user role
+    Route::get('/set_customer',[ChangeRoleController::class,'SetRoleToCustomer']);
+    Route::get('/set_agent',[ChangeRoleController::class,'SetRoleToAgent']);
 
-// profile menu
-Route::get('/profile/main',[ProfileController::class,'ShowProfileMenu'])->middleware('ProfileMenuMiddleware');
-Route::get('/profile/edit',[ProfileController::class,'ShowEditProfileMenu'])->middleware('ProfileMenuMiddleware');
-Route::post('/profile/edit/execution',[ProfileController::class,'PerformEdit']);
+    // profile menu
+    Route::get('/profile/main',[ProfileController::class,'ShowProfileMenu'])->middleware('ProfileMenuMiddleware');
+    Route::get('/profile/edit',[ProfileController::class,'ShowEditProfileMenu'])->middleware('ProfileMenuMiddleware');
+    Route::post('/profile/edit/execution',[ProfileController::class,'PerformEdit']);
 
-// agent menu
-Route::get('/dashboard/agent/add',[PakaianController::class,'ShowAddPakaian'])->middleware('AgentRoleMiddleware');
-Route::post('/dashboard/agent/add/execution',[PakaianController::class,'PerformAddPakaian'])->middleware('AgentRoleMiddleware');
-Route::get('/dashboard/agent/edit/{id}',[PakaianController::class,'ShowEditPakaian'])->middleware('AgentRoleMiddleware');
-Route::post('/dashboard/agent/edit/execution',[PakaianController::class,'PerformEditPakaian'])->middleware('AgentRoleMiddleware');
-Route::get('/dashboard/agent/delete/{id}/execution',[PakaianController::class,'PerformDeletePakaian'])->middleware('AgentRoleMiddleware');
+    // agent menu
+    Route::get('/dashboard/agent/add',[PakaianController::class,'ShowAddPakaian'])->middleware('AgentRoleMiddleware');
+    Route::post('/dashboard/agent/add/execution',[PakaianController::class,'PerformAddPakaian'])->middleware('AgentRoleMiddleware');
+    Route::get('/dashboard/agent/edit/{id}',[PakaianController::class,'ShowEditPakaian'])->middleware('AgentRoleMiddleware');
+    Route::post('/dashboard/agent/edit/execution',[PakaianController::class,'PerformEditPakaian'])->middleware('AgentRoleMiddleware');
+    Route::get('/dashboard/agent/delete/{id}/execution',[PakaianController::class,'PerformDeletePakaian'])->middleware('AgentRoleMiddleware');
 
-// customer menu
+    // customer menu
+});
