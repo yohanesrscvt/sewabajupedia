@@ -36,7 +36,6 @@
             <div class="judul-login">
                 <h1>LOGIN</h1>
             </div>
-            
             <!-- modified form -->
             <form action="/login/process" method="post" class="form">
                 @csrf
@@ -55,6 +54,13 @@
                 <button id="submit-button" type="submit" >Login</button>
             </form>
 
+            <!-- alert message -->
+            @if(Session::get('fail'))
+                <script>
+                    alert("{{Session::get('fail')}}")
+                </script>
+            @endif
+            
             <div class="already-login">
                 <p>Belum memiliki akun?</p>
                 <a href="/register">Daftar Sekarang</a>

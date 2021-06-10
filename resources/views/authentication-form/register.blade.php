@@ -63,6 +63,13 @@
                 <button id="submit-button" type="submit" >Register</button>
             </form>
 
+            <!-- alert message -->
+            @if(Session::get('fail'))
+                <script>
+                    alert("{{Session::get('fail')}}")
+                </script>
+            @endif
+
             <div class="already-register">
                 <p>Sudah memiliki akun?</p>
                 <a href="/login">Masuk Sekarang</a>
