@@ -127,4 +127,8 @@ class AuthenticationController extends Controller
             return redirect('/login');
         }
     }
+
+    public function UnderMaintenance(){
+        return view('notfound');
+    }
 }
