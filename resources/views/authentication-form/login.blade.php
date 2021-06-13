@@ -14,7 +14,7 @@
     <!-- body -->
     <div class="content">
         <div class="form-list">
-            <div class="judul-login">
+            <div class="judul-login">s
                 <h1>LOGIN</h1>
             </div>
             <!-- modified form -->
