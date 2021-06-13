@@ -28,9 +28,6 @@
         <p>Situs penyewa baju no.1 di Indonesia</p>
     </header>
 
-    <!-- navbar -->
-    @yield('navbar')
-
     <!-- content -->
     @yield('content')
 
