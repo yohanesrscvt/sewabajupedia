@@ -25,7 +25,7 @@ Route::get('/', function () {
 Route::post('/login/process',[AuthenticationController::class,'AccountLogin']);
 Route::post('/register/add-account',[AuthenticationController::class,'AddNewAccount']);
 Route::get('/logout',[AuthenticationController::class,'AccountLogout']);
-Route::get('/maintenance', [AuthenticationController::class,'UnderMaintenance']);
+
 Route::get('/login',[AuthenticationController::class,'ShowLogin'])->middleware('LoginMiddleware');
 Route::get('/register',[AuthenticationController::class,'ShowRegister'])->middleware('RegisterMiddleware');
 Route::middleware(['PreventBackButtonMiddleware'])->group(function () {
