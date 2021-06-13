@@ -36,9 +36,9 @@
         <div class="follow-link">
             <p>Follow SewaBajuPedia</p>
             <div class="social-media">
-                <a href="/maintenance" class="fa fa-facebook fa-2x"></a>
-                <a href="/maintenance" class="fa fa-twitter fa-2x"></a>
-                <a href="/maintenance" class="fa fa-instagram fa-2x"></a>
+                <a href="#" class="fa fa-facebook fa-2x"></a>
+                <a href="#" class="fa fa-twitter fa-2x"></a>
+                <a href="#" class="fa fa-instagram fa-2x"></a>
             </div>
         </div>
         <div class="copyright">
