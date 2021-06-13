@@ -2,19 +2,21 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-header{
+header.header{
     background-color: #0C6170;
     text-align: center;
     height: 154px;
 }
 
-header>h1{
+header.header>h1.header-title{
     padding: 3px;
     font-size: 90px;
     color:#A4E5E0;
+    font-weight: bold;
 }
 
-header>p{
+header.header>p.header-par{
     font-size:24px ;
     color:#A4E5E0;
+    margin-top: -10px;
 }

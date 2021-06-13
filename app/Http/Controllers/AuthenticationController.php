@@ -106,6 +106,7 @@ class AuthenticationController extends Controller
         // reference : https://www.youtube.com/watch?v=UGW01ttsfpQ&ab_channel=IrebeLibrary
 
         $CustomerLogin = customer::where('CustomerEmail','=',$request->email)->first();
+        // var_dump($CustomerLogin); -> NULL
         if($CustomerLogin){
             if(Hash::check($request->password,$CustomerLogin->CustomerPassword)){
                 session()->put('LoginID',$CustomerLogin->CustomerID);
