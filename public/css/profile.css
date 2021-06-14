@@ -1,6 +1,6 @@
 .container {
-    margin: 10% 5%;
-    padding: 5%;
+    margin: 5% 0%;
+    padding: 2%;
     background-color: #DBF5F0;
     border-radius: 20px;
 }
@@ -14,7 +14,7 @@
 .detail {
     display: flex;
     justify-content: center;
-    padding: 2% 5%;
+    /* padding: 2% 5%; */
 }
 
 .kiri {
@@ -25,7 +25,11 @@
 }
 
 .kiri img {
-    border-radius: 50px;
+    border-radius: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 200px;
+    height: 200px;
 }
 
 .kanan .saldo {

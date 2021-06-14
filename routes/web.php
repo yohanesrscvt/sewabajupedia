@@ -40,6 +40,7 @@ Route::middleware(['PreventBackButtonMiddleware'])->group(function () {
     Route::get('/profile/main',[ProfileController::class,'ShowProfileMenu'])->middleware('ProfileMenuMiddleware');
     Route::get('/profile/edit',[ProfileController::class,'ShowEditProfileMenu'])->middleware('ProfileMenuMiddleware');
     Route::post('/profile/edit/execution',[ProfileController::class,'PerformEdit']);
+    Route::get('/profile/back',[ProfileController::class,'ReturnBackDashboard']);
 
     // agent menu
     Route::get('/dashboard/agent/add',[PakaianController::class,'ShowAddPakaian'])->middleware('AgentRoleMiddleware');

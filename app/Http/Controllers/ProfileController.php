@@ -20,6 +20,15 @@ class ProfileController extends Controller
         return view('profile\profile',['UserData' => $UserData]);
     }
 
+    public function ReturnBackDashboard(){
+        if(session()->has('LoginID') && session()->has('UserRole') && session()->get('UserRole') == 'Agent'){
+            return redirect('/dashboard/agent');
+        }
+        else{ // customer
+            return redirect('/dashboard/customer');
+        }
+    }
+
     public function ShowEditProfileMenu(){
         // fetch data function
         // we choose customer as $UserData because both customer and agent have same data then show it
