@@ -60,6 +60,11 @@
     margin-top: 40px;
 }
 
+#submit-button:hover{
+    background-color: #2e94a7;
+    transition: 0.5s;
+}
+
 .already-register{
     display: flex;
     justify-content: center;
