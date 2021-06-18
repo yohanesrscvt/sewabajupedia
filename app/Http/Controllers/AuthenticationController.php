@@ -12,6 +12,18 @@ use App\Models\customer;
 
 class AuthenticationController extends Controller
 {
+    public function CheckIfLoggedIn(){
+        if(session()->has('LoginID') && session()->has('UserRole') && session()->get('UserRole') == 'Agent'){
+            return redirect('/dashboard/agent');
+        }
+        else if(session()->has('LoginID') && session()->has('UserRole') && session()->get('UserRole') == 'Customer'){
+            return redirect('/dashboard/customer');
+        }
+        else{
+            return view('welcome');
+        }
+    }
+
     public function ShowLogin(){
         return view('authentication-form\login');
     }

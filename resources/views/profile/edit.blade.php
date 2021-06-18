@@ -1,24 +1,46 @@
+@extends('master')
+@section('title','Edit Profile')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Profile</title>
-    <script type="text/javascript">
-        function preventBack(){
-            window.history.forward();
-        }
-        setTimeout(() => {
-            preventBack()
-        }, 0);
-        window.onunload = function(){null};
-    </script>
 </head>
 <body>
+    @foreach($UserData as $ud)
+    @section('navbar')
+    <nav>
+        <div class="navigation-bar">
+            <div class="item-left">
+                <div class="home-nav">
+                    <a href="">Home</a>
+                </div>
+                <div class="kategori-nav">
+                    <a href="">Kategori</a>
+                </div>
+                <div class="about-nav">
+                    <a class="about-nav" href="">About</a>
+                </div>
+                <div class="FAQ-nav">
+                    <a class="FAQ-nav" href="">FAQ</a>
+                </div>
+            </div>
+
+            <!-- <div class="item-right">
+                <a href="profile.html">
+                    <div class="profile">
+                        <img src="../Images/batik.jpg" alt="profile" width="100px" height="100px">
+                    </div>
+                </a>
+            </div> -->
+        </div>
+    </nav>
+    @endsection
+
+    @section('content')
     <form action="/profile/edit/execution" method="post" enctype="multipart/form-data">
         @csrf
-        @foreach($UserData as $ud)
             <label for="nama">Nama</label><br>
             <input type="text" name="nama" id="nama" value="{{$ud->CustomerNama}}" required>
             <br><br>
@@ -29,7 +51,6 @@
             <input type="text" name="alamat" id="alamat" value="{{$ud->CustomerAlamat}}" required>
             <br><br>
             <input type="hidden" name="file_temp" value="{{$ud->CustomerPicturePath}}">
-        @endforeach
         <hr>
         <p>Change Picture</p>
         <input type="file" name="file" id="file">
@@ -43,5 +64,7 @@
         <br><br>
         <input type="submit" value="Update Profile">
     </form>
+    @endsection
+    @endforeach
 </body>
 </html>

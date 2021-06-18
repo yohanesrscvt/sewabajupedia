@@ -16,10 +16,7 @@ use App\Http\Controllers\PakaianController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/',[AuthenticationController::class,'CheckIfLoggedIn']);
 // learning resources : https://www.youtube.com/watch?v=ko4PU4eplnY&ab_channel=IrebeLibrary
 
 Route::post('/login/process',[AuthenticationController::class,'AccountLogin']);

@@ -58,7 +58,7 @@
             <div class="kanan">
                 <div class="saldo">
                     <h3>Saldo E-Money</h3>
-                    <p>Menambak saldo dan melihat riwayat transaksi dilakukan</p>
+                    <p>Menambah saldo dan melihat riwayat transaksi dilakukan</p>
                     <div class="buttons">
                         <h4 style="color:white;"><span class="badge bg-secondary">Saldo anda : {{$ud->CustomerSaldo}}</span></h4>
                         <a href="" class="btn btn-success"> TopUp Saldo</>
