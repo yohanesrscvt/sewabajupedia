@@ -17,47 +17,56 @@ class kategori extends Seeder
     {
         DB::table('kategoris')->insert([
             'KategoriID' => 'K1',
-            'KategoriNama' => 'Pesta'
+            'KategoriNama' => 'Pesta',
+            'KategoriPicturePath' => 'storage/kategori/party_dress.jpg'
         ]);
 
         DB::table('kategoris')->insert([
             'KategoriID' => 'K2',
-            'KategoriNama' => 'Formal'
+            'KategoriNama' => 'Formal',
+            'KategoriPicturePath' => 'storage/kategori/formal.jpg'
         ]);
 
         DB::table('kategoris')->insert([
             'KategoriID' => 'K3',
-            'KategoriNama' => 'Adat'
+            'KategoriNama' => 'Adat',
+            'KategoriPicturePath' => 'storage/kategori/adat.jpg'
         ]);
 
         DB::table('kategoris')->insert([
             'KategoriID' => 'K4',
-            'KategoriNama' => 'Batik'
+            'KategoriNama' => 'Batik',
+            'KategoriPicturePath' => 'storage/kategori/batik.jpg'
         ]);
 
         DB::table('kategoris')->insert([
             'KategoriID' => 'K5',
-            'KategoriNama' => 'Cosplay'
+            'KategoriNama' => 'Cosplay',
+            'KategoriPicturePath' => 'storage/kategori/cosplay.jpg'
         ]);
 
         DB::table('kategoris')->insert([
             'KategoriID' => 'K6',
-            'KategoriNama' => 'Gaun'
+            'KategoriNama' => 'Gaun',
+            'KategoriPicturePath' => 'storage/kategori/dress.jpg'
         ]);
 
         DB::table('kategoris')->insert([
             'KategoriID' => 'K7',
-            'KategoriNama' => 'Jas'
+            'KategoriNama' => 'Jas',
+            'KategoriPicturePath' => 'storage/kategori/jas.jpg'
         ]);
 
         DB::table('kategoris')->insert([
             'KategoriID' => 'K8',
-            'KategoriNama' => 'Baby'
+            'KategoriNama' => 'Baby',
+            'KategoriPicturePath' => 'storage/kategori/baby.jpg'
         ]);
 
         DB::table('kategoris')->insert([
             'KategoriID' => 'K9',
-            'KategoriNama' => 'Other/Lainnya'
+            'KategoriNama' => 'Other/Lainnya',
+            'KategoriPicturePath' => ''
         ]);
 
     }

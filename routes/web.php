@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ChangeRoleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PakaianController;
+use App\Http\Controllers\CustomerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,4 +48,5 @@ Route::middleware(['PreventBackButtonMiddleware'])->group(function () {
     Route::get('/dashboard/agent/delete/{id}/execution',[PakaianController::class,'PerformDeletePakaian'])->middleware('AgentRoleMiddleware');
 
     // customer menu
+    
 });
