@@ -1,6 +1,5 @@
 @extends('master')
 @section('title','Kategori')
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +9,11 @@
 </head>
 <body>
     @section('content')
-    @foreach($KategoriData as $kd)
+    @foreach($PakaianList as $pl)
     <hr>
-    <img src="{{ asset($kd->KategoriPicturePath) }}" alt="">
-    <a href="/dashboard/customer/category/{{$kd->KategoriID}}">{{$kd->KategoriNama}}</a>
+    <img src="{{ asset('storage/' . $pl->PakaianGambar) }}" alt="">
+    <p>{{$pl->PakaianNama}}</p>
+    <p>{{$pl->PakaianHarga}}</p>
     <hr>
     @endforeach
     @endsection

@@ -48,5 +48,6 @@ Route::middleware(['PreventBackButtonMiddleware'])->group(function () {
     Route::get('/dashboard/agent/delete/{id}/execution',[PakaianController::class,'PerformDeletePakaian'])->middleware('AgentRoleMiddleware');
 
     // customer menu
-    
+    Route::get('/dashboard/customer/category',[CustomerController::class,'ShowKategori']);
+    Route::get('/dashboard/customer/category/{id}',[CustomerController::class,'PakaianBasedKategori']);
 });
