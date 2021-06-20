@@ -66,9 +66,14 @@ class CustomerController extends Controller
         // count rent days
         $StartRent=strtotime($r->date);
         $FinalRent=strtotime($r->date2);
-        $CountDays= intval(abs($StartRent-$FinalRent)/86400);
+        $CountDays= intval(abs($FinalRent-$StartRent)/86400);
         // references: https://stackoverflow.com/questions/3653882/how-to-count-days-between-two-dates-in-php
 
-        return view('customer-role\konfirmasi',['PakaianDetail' => $PakaianDetail,'PaymentType' => $PaymentType, 'DeliveryServices' => $DeliveryServices, 'LaundryServices' => $LaundryServices, 'RentDays' => $CountDays]);
+        return view('customer-role\konfirmasi',['PakaianDetail' => $PakaianDetail,'PaymentType' => $PaymentType, 'DeliveryServices' => $DeliveryServices, 'LaundryServices' => $LaundryServices, 'RentDays' => $CountDays, 'StartRent' => $StartRent, 'FinalRent' => $FinalRent]);
+    }
+
+    // process buy pakaian
+    public function ExecuteBuyPakaian(Request $r){
+        
     }
 }

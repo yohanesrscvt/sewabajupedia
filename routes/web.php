@@ -52,4 +52,5 @@ Route::middleware(['PreventBackButtonMiddleware'])->group(function () {
     Route::get('/dashboard/customer/category/{id}',[CustomerController::class,'PakaianBasedKategori']);
     Route::get('/dashboard/customer/category/pakaian/{id2}',[CustomerController::class,'DetailBasedPakaian']);
     Route::post('/dashboard/customer/category/pakaian/buy',[CustomerController::class,'BuyPakaian']);
+    Route::post('/dashboard/customer/category/pakaian/buy/execute',[CustomerController::class,'ExecuteBuyPakaian']);
 });
