@@ -23,27 +23,19 @@
     
 }
 
-/* .item-right{
+.item-right{
     display: flex;
     justify-content: space-between;
     color: white;
-    margin: 14px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 10px;
     font-size: 24px;
 }
 
-.money{
-    margin-right: 40px;
-    background-color: #0C6170;
-    border-radius: 10px;
+.item-right>a>.profile>img{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
 }
-
-.as{
-    background-color: #0C6170;
-    border-radius: 10px;
-    margin-right: 40px;
-}
-
-.regis{
-    text-decoration: none;
-    color: black;
-} */
