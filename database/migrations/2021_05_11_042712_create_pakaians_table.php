@@ -19,7 +19,7 @@ class CreatePakaiansTable extends Migration
             $table->string('KategoriID');
             $table->string('SizeID');
             $table->string('PakaianNama');
-            $table->string('PakaianHarga');
+            $table->integer('PakaianHarga');
             $table->string('PakaianGambar');
             $table->string('PakaianDeskripsi');
             $table->integer('StockQty');

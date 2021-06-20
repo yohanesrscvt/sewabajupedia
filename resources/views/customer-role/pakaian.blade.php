@@ -11,6 +11,7 @@
     @section('content')
     @foreach($PakaianList as $pl)
     <hr>
+    <a href="/dashboard/customer/category/pakaian/{{$pl->PakaianID}}">Lihat Detail</a>
     <img src="{{ asset('storage/' . $pl->PakaianGambar) }}" alt="">
     <p>{{$pl->PakaianNama}}</p>
     <p>{{$pl->PakaianHarga}}</p>

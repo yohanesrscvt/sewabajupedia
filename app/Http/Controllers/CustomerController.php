@@ -22,4 +22,42 @@ class CustomerController extends Controller
                             ->get();
         return view('customer-role\pakaian',['PakaianList' => $PakaianList]);
     }
+
+    // show pakaian detail based pakaian id
+    public function DetailBasedPakaian($id2){
+        $PakaianDetail  =       DB::table('pakaians')
+                                ->join('sizes','pakaians.SizeID','=','sizes.SizeID')
+                                ->where('pakaians.PakaianID',$id2)
+                                ->get();
+        
+        $PaymentType    =   DB::table('paymentmethods')
+                            ->get();
+
+        $DeliveryServices    =   DB::table('deliveryservices')
+                            ->get();
+        
+        $LaundryServices   =   DB::table('laundryservices')
+                            ->get();
+
+        // return var_dump($PakaianDetail);
+        return view('customer-role\detail-pakaian',['PakaianDetail' => $PakaianDetail,'PaymentType' => $PaymentType, 'DeliveryServices' => $DeliveryServices, 'LaundryServices' => $LaundryServices]);
+    }
+
+    // confirmation page to buy pakaian
+    public function BuyPakaian(Request $r){
+        // show detail pakaian
+        $PakaianDetail  =       DB::table('pakaians')
+                                ->join('sizes','pakaians.SizeID','=','sizes.SizeID')
+                                ->where('pakaians.PakaianID',$r->PakaianID)
+                                ->get();
+        
+        // count rent days
+        $StartRent=strtotime();
+        $FinalRent=strtotime();
+        $CountDays=abs($StartRent-$FinalRent)/86400;
+        // references: https://stackoverflow.com/questions/3653882/how-to-count-days-between-two-dates-in-php
+
+        // count total pembayaran
+        $TotalBuy = ($CountDays * $r->PakaianHarga) + $r->delivery_services + $r->laundry_services;
+    }
 }
