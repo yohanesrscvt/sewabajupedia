@@ -26,7 +26,10 @@ class CustomerController extends Controller
         $CustomerData   =   DB::table('customers')
                             ->where('CustomerID',session()->get('LoginID'))
                             ->get();
-        return view('customer-role\pakaian',['PakaianList' => $PakaianList,'CustomerData' => $CustomerData]);
+        $Kategori       =   DB::table('kategoris')
+                            ->where('KategoriID',$id)
+                            ->first();
+        return view('customer-role\pakaian',['PakaianList' => $PakaianList,'CustomerData' => $CustomerData, 'Kategori' =>$Kategori]);
     }
 
     // show pakaian detail based pakaian id

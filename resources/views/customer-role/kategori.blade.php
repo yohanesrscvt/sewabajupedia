@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/kategori.css')}}">
 </head>
 <body>
     <!-- navbar -->
@@ -51,12 +52,67 @@
     @endsection
 
     @section('content')
-    @foreach($KategoriData as $kd)
-    <hr>
-    <img src="{{ asset($kd->KategoriPicturePath) }}" alt="">
-    <a href="/dashboard/customer/category/{{$kd->KategoriID}}">{{$kd->KategoriNama}}</a>
-    <hr>
-    @endforeach
+    <div class="content">
+        <div class="kategori-title">
+            <h1>Kategori</h1>
+        </div>
+        <div class="category-view">
+            <div class="category-list">
+                <a href="/dashboard/customer/category/K1">
+                    <img src="{{asset('storage/Images/party_dress.jpg')}}" alt="">
+                </a>
+                <h6>Pesta</h6>
+            </div>
+            <div class="category-list">
+                <a href="/dashboard/customer/category/K2">
+                    <img src="{{asset('storage/Images/formal.jpg')}}" alt="">
+                </a>
+                <h6>Formal</h6>
+            </div>
+            <div class="category-list">
+                <a href="/dashboard/customer/category/K3">
+                    <img src="{{asset('storage/Images/adat.jfif')}}" alt="">
+                </a>
+                <h6>Adat</h6>
+            </div>
+            <div class="category-list">
+                <a href="/dashboard/customer/category/K4">
+                    <img src="{{asset('storage/Images/batik.jpg')}}" alt="">
+                </a>
+                <h6>Batik</h6>
+            </div>
+            <div class="category-list">
+                <a href="/dashboard/customer/category/K5">
+                    <img src="{{asset('storage/Images/cosplay.jpg')}}" alt="">
+                </a>
+                <h6>Cosplay</h6>
+            </div>
+            <div class="category-list">
+                <a href="/dashboard/customer/category/K6">
+                    <img src="{{asset('storage/Images/dress.jpg')}}" alt="">
+                </a>
+                <h6>Gaun</h6>
+            </div>
+            <div class="category-list">
+                <a href="/dashboard/customer/category/K7">
+                    <img src="{{asset('storage/Images/jas.jpg')}}" alt="">
+                </a>
+                <h6>Jas</h6>
+            </div>
+            <div class="category-list">
+                <a href="/dashboard/customer/category/K8">
+                    <img src="{{asset('storage/Images/baby.jpg')}}" alt="">
+                </a>
+                <h6>Baby</h6>
+            </div>
+            <div class="category-list">
+                <a href="/dashboard/customer/category/K9">
+                    Lainnya jika anda belum menemukan kategori yang sesuai
+                </a>
+            </div>
+        </div>
+        
+    </div>
     @endsection
 </body>
 </html>

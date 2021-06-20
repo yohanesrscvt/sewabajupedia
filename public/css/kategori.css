@@ -1,0 +1,34 @@
+/* content */
+.kategori-title{
+    font-size: 34px;
+    color: #0C6170;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.category-view{
+    margin: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.category-list{
+    text-align: center;
+}
+
+.category-list img{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    border: 2px solid #A0A0A0;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.category-list h6{
+    font-size: 30px;
+    font-family: Helvetica;
+    font-style: bold;
+}

@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/detail.css')}}">
 </head>
 <body>
     <!-- navbar -->
@@ -51,41 +52,96 @@
 
     @section('content')
     @foreach($PakaianDetail as $pd)
-    <form action="/dashboard/customer/category/pakaian/buy" method="post">
-        @csrf
-        <input type="hidden" name="PakaianID" value="{{$pd->PakaianID}}">
-        <input type="hidden" name="PakaianHarga" value="{{$pd->PakaianHarga}}">
-        <img src="{{ asset('storage/' . $pd->PakaianGambar) }}" alt="">
-        <p>{{$pd->PakaianNama}}</p>
-        <p>{{$pd->PakaianHarga}}</p>
-        <p>{{$pd->PakaianDeskripsi}}</p>
-        <p>{{$pd->DeskripsiSize}}</p>
-        <label for="date">Mulai Sewa</label>
-        <input type="date" name="date" id="date" required><br>
+    <div class="content">
+        <div class="kategori-type">
+            <div class="kategori-title">
+                <h1 style="text-align:center;">Detail</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <img src="{{ asset('storage/' . $pd->PakaianGambar) }}" class="d-block w-100" alt="formal_acara">
+                </div>
+            </div>
+        </div>
 
-        <label for="date2">Selesai Sewa</label>
-        <input type="date" name="date2" id="date2" required><br>
-        
-        <select name="payment_type" id="payment">
-            @foreach($PaymentType as $pt)
-            <option value="{{$pt->PaymentMethodID}}">{{$pt->PaymentMethodName}}</option>
-            @endforeach
-        </select>
-        
-        <select name="delivery_services" id="delivery">
-            @foreach($DeliveryServices as $ds)
-            <option value="{{$ds->DeliveryServiceID}}">{{$ds->DeliveryServiceName}}</option>
-            @endforeach
-        </select>
-        
-        <select name="laundry_services" id="laundry">
-            @foreach($LaundryServices as $ls)
-            <option value="{{$ls->LaundryServiceID}}">{{$ls->LaundryServiceName}}</option>
-            @endforeach
-        </select>
-        <button type="submit">Beli Sekarang</button>
-    </form>
-    @endforeach
+        <br>
+
+        <div class="detailWrapper">
+            <h1>{{$pd->PakaianNama}}</h1>
+            <p>Rp. {{$pd->PakaianHarga}}/hari</p>
+
+            <form action="/dashboard/customer/category/pakaian/buy" method="post">
+                @csrf
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Code</th>
+                            <td>: {{$pd->PakaianID}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Deskripsi</th>
+                            <td>: {{$pd->PakaianDeskripsi}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ukuran</th>
+                            <td>: {{$pd->DeskripsiSize}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="date">Mulai Sewa</label></th>
+                            <td> 
+                                <input type="date" name="date" id="date" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="date2">Selesai Sewa</label></th>
+                            <td> 
+                                <input type="date" name="date2" id="date2" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tipe Pembayaran</th>
+                            <td>
+                            <select name="payment_type">
+                                @foreach($PaymentType as $pt)
+                                <option value="{{$pt->PaymentMethodID}}">{{$pt->PaymentMethodName}}</option>
+                                @endforeach
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tipe Pengiriman</th>
+                            <td>
+                            <select name="delivery_services">
+                                @foreach($DeliveryServices as $ds)
+                                <option value="{{$ds->DeliveryServiceID}}">{{$ds->DeliveryServiceName}}</option>
+                                @endforeach
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Tipe Laundry</th>
+                            <td>
+                            <select name="laundry_services">
+                                @foreach($LaundryServices as $ls)
+                                <option value="{{$ls->LaundryServiceID}}">{{$ls->LaundryServiceName}}</option>
+                                @endforeach
+                            </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <br>
+                </table>
+                <input type="hidden" name="PakaianID" value="{{$pd->PakaianID}}">
+                <input type="hidden" name="PakaianHarga" value="{{$pd->PakaianHarga}}">
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success btn-block"> <b> SEWA </b></button>
+                </div>
+            </form>
+        </div>
+    </div>
+    @endforeach    
     @endsection
 </body>
 </html>

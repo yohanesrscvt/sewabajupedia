@@ -1,0 +1,66 @@
+/* content */
+
+.back-button{
+    position: absolute;
+    left: 50px;
+    top: 220px;
+}
+
+.back-button>a{
+    font-size: 40px;
+    color: black;
+    text-decoration: none;
+}
+
+.kategori-title{
+    margin-top: 25px;
+    font-size: 34px;
+    color: #0C6170;
+    text-align: center;
+}
+
+.list-cloth{
+    background-color: #DBF5F0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    gap: 50px;
+    margin: 0 50px;
+    margin-bottom: 50px;
+    padding: 50px 50px;
+    border-radius: 10px;
+    margin-top: 120px;
+}
+
+.cloth-card{
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    width: 300px;
+    margin: 10px 10px;
+    border-radius: 10px;
+}
+
+.cloth-card>img{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.card-text{
+    padding: 10px  15px;
+    font-size: 24px;
+}
+
+.card-text p{
+    padding: 5px 0;
+}
+
+.price{
+    font-size: 15px;
+}
+
+.star{
+    padding: 5px 15px;
+    /* font-size: 80px; */
+}

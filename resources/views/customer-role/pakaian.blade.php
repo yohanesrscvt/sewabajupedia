@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/kategori_formal.css')}}">
 </head>
 <body>
     <!-- navbar -->
@@ -50,14 +51,33 @@
     @endsection
 
     @section('content')
-    @foreach($PakaianList as $pl)
-    <hr>
-    <a href="/dashboard/customer/category/pakaian/{{$pl->PakaianID}}">Lihat Detail</a>
-    <img src="{{ asset('storage/' . $pl->PakaianGambar) }}" alt="">
-    <p>{{$pl->PakaianNama}}</p>
-    <p>{{$pl->PakaianHarga}}</p>
-    <hr>
-    @endforeach
+    <div class="content">
+        <div></div>
+        <div class="kategori-type">
+            <div class="kategori-title">
+                <h1>{{$Kategori->KategoriNama}}</h1>
+            </div>
+        </div>
+
+        <div class="kategori-choose">
+            <p></p>
+        </div>
+
+        <div class="list-cloth">
+            @foreach($PakaianList as $pl)
+            <a href="/dashboard/customer/category/pakaian/{{$pl->PakaianID}}" class="cloth-card" style="text-decoration:none;">
+                <img src="{{asset('storage/' . $pl->PakaianGambar)}}" alt="">
+                <div class="card-text">
+                    <p>{{$pl->PakaianNama}}</p>
+                    <p class="price">Rp. {{$pl->PakaianHarga}}/hari</p>
+                    <div class="stars">
+                        &#9733;{{$pl->PakaianRating}} of 5
+                    </div>
+                </div>
+            </a>
+            @endforeach
+        </div>
+    </div>
     @endsection
 </body>
 </html>
