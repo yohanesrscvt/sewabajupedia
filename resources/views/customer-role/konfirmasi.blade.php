@@ -9,7 +9,48 @@
 </head>
 <body>
     @section('content')
-    
+    <!-- detail pakaian -->
+    @foreach($PakaianDetail as $pd)
+    <p>{{$pd->PakaianNama}}</p>
+    <p>{{$pd->PakaianHarga}}</p>
+    <p>{{$pd->DeskripsiSize}}</p>
+    <p>Lama Sewa: {{$RentDays}}</p>
+    <br><br>
+    <h1>Detail Pembayaran</h1>
+    <p>Biaya Per Hari: {{$pd->PakaianHarga}}</p>
+    @endforeach
+
+    <!-- delivery -->
+    @foreach($DeliveryServices as $ds)
+    <p>Biaya Antar: {{$ds->DeliveryServicePrice}}</p>
+    @endforeach
+
+    <!-- laundry -->
+    @foreach($LaundryServices as $ls)
+    <p>Biaya Laundry: {{$ls->LaundryServicePrice}}</p>
+    @endforeach
+
+    <!-- total -->
+    <p id="total"></p>
+    <script>
+        var DeliveryFee;
+        var LaundryFee;
+        var PakaianFee;
+        @foreach($DeliveryServices as $ds)
+            DeliveryFee = {{$ds->DeliveryServicePrice}};
+        @endforeach
+
+        @foreach($LaundryServices as $ls)
+            LaundryFee = {{$ls->LaundryServicePrice}};
+        @endforeach
+
+        @foreach($PakaianDetail as $pd)
+            PakaianFee = {{$pd->PakaianHarga}};
+        @endforeach
+
+        var total = ({{$RentDays}} * PakaianFee) + LaundryFee + DeliveryFee;
+        document.getElementById("total").innerHTML = "Total: " + total;
+    </script>
     @endsection
 </body>
 </html>

@@ -51,13 +51,24 @@ class CustomerController extends Controller
                                 ->where('pakaians.PakaianID',$r->PakaianID)
                                 ->get();
         
+        $PaymentType    =   DB::table('paymentmethods')
+                            ->where('PaymentMethodID',$r->payment_type)
+                            ->get();
+    
+        $DeliveryServices    =   DB::table('deliveryservices')
+                                ->where('DeliveryServiceID',$r->delivery_services)
+                                ->get();
+        
+        $LaundryServices   =   DB::table('laundryservices')
+                                ->where('LaundryServiceID',$r->laundry_services)
+                                ->get();
+        
         // count rent days
-        $StartRent=strtotime();
-        $FinalRent=strtotime();
-        $CountDays=abs($StartRent-$FinalRent)/86400;
+        $StartRent=strtotime($r->date);
+        $FinalRent=strtotime($r->date2);
+        $CountDays= intval(abs($StartRent-$FinalRent)/86400);
         // references: https://stackoverflow.com/questions/3653882/how-to-count-days-between-two-dates-in-php
 
-        // count total pembayaran
-        $TotalBuy = ($CountDays * $r->PakaianHarga) + $r->delivery_services + $r->laundry_services;
+        return view('customer-role\konfirmasi',['PakaianDetail' => $PakaianDetail,'PaymentType' => $PaymentType, 'DeliveryServices' => $DeliveryServices, 'LaundryServices' => $LaundryServices, 'RentDays' => $CountDays]);
     }
 }

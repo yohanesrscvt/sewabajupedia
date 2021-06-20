@@ -15,6 +15,7 @@
         <input type="hidden" name="PakaianID" value="{{$pd->PakaianID}}">
         <input type="hidden" name="PakaianHarga" value="{{$pd->PakaianHarga}}">
         <img src="{{ asset('storage/' . $pd->PakaianGambar) }}" alt="">
+        <p>{{$pd->PakaianNama}}</p>
         <p>{{$pd->PakaianHarga}}</p>
         <p>{{$pd->PakaianDeskripsi}}</p>
         <p>{{$pd->DeskripsiSize}}</p>
@@ -32,13 +33,13 @@
         
         <select name="delivery_services" id="delivery">
             @foreach($DeliveryServices as $ds)
-            <option value="{{$ds->DeliveryServicePrice}}">{{$ds->DeliveryServiceName}}</option>
+            <option value="{{$ds->DeliveryServiceID}}">{{$ds->DeliveryServiceName}}</option>
             @endforeach
         </select>
         
         <select name="laundry_services" id="laundry">
             @foreach($LaundryServices as $ls)
-            <option value="{{$ls->LaundryServicePrice}}">{{$ls->LaundryServiceName}}</option>
+            <option value="{{$ls->LaundryServiceID}}">{{$ls->LaundryServiceName}}</option>
             @endforeach
         </select>
         <button type="submit">Beli Sekarang</button>
