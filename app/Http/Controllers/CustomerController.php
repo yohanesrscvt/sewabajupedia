@@ -10,7 +10,10 @@ class CustomerController extends Controller
     // show kategori
     public function ShowKategori(){
         $KategoriData   =   DB::table('kategoris')->get();
-        return view('customer-role\kategori',['KategoriData' => $KategoriData]);
+        $CustomerData = DB::table('customers')
+                        ->where('CustomerID',session()->get('LoginID'))
+                        ->get();
+        return view('customer-role\kategori',['KategoriData' => $KategoriData, 'CustomerData' => $CustomerData]);
     }
 
     // show pakaian based kategori id
@@ -20,7 +23,10 @@ class CustomerController extends Controller
                             ->where('AgentID','!=',session()->get('LoginID'))
                             ->where('StockQty','>',0)
                             ->get();
-        return view('customer-role\pakaian',['PakaianList' => $PakaianList]);
+        $CustomerData   =   DB::table('customers')
+                            ->where('CustomerID',session()->get('LoginID'))
+                            ->get();
+        return view('customer-role\pakaian',['PakaianList' => $PakaianList,'CustomerData' => $CustomerData]);
     }
 
     // show pakaian detail based pakaian id
@@ -40,7 +46,10 @@ class CustomerController extends Controller
                             ->get();
 
         // return var_dump($PakaianDetail);
-        return view('customer-role\detail-pakaian',['PakaianDetail' => $PakaianDetail,'PaymentType' => $PaymentType, 'DeliveryServices' => $DeliveryServices, 'LaundryServices' => $LaundryServices]);
+        $CustomerData   =   DB::table('customers')
+                            ->where('CustomerID',session()->get('LoginID'))
+                            ->get();
+        return view('customer-role\detail-pakaian',['PakaianDetail' => $PakaianDetail,'PaymentType' => $PaymentType, 'DeliveryServices' => $DeliveryServices, 'LaundryServices' => $LaundryServices, 'CustomerData' => $CustomerData]);
     }
 
     // confirmation page to buy pakaian
@@ -62,14 +71,16 @@ class CustomerController extends Controller
         $LaundryServices   =   DB::table('laundryservices')
                                 ->where('LaundryServiceID',$r->laundry_services)
                                 ->get();
-        
+        $CustomerData   =   DB::table('customers')
+                            ->where('CustomerID',session()->get('LoginID'))
+                            ->get();
         // count rent days
         $StartRent=strtotime($r->date);
         $FinalRent=strtotime($r->date2);
         $CountDays= intval(abs($FinalRent-$StartRent)/86400);
         // references: https://stackoverflow.com/questions/3653882/how-to-count-days-between-two-dates-in-php
 
-        return view('customer-role\konfirmasi',['PakaianDetail' => $PakaianDetail,'PaymentType' => $PaymentType, 'DeliveryServices' => $DeliveryServices, 'LaundryServices' => $LaundryServices, 'RentDays' => $CountDays, 'StartRent' => $StartRent, 'FinalRent' => $FinalRent]);
+        return view('customer-role\konfirmasi',['PakaianDetail' => $PakaianDetail,'PaymentType' => $PaymentType, 'DeliveryServices' => $DeliveryServices, 'LaundryServices' => $LaundryServices, 'RentDays' => $CountDays, 'StartRent' => $StartRent, 'FinalRent' => $FinalRent,'CustomerData' => $CustomerData]);
     }
 
     // process buy pakaian

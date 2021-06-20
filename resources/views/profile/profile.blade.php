@@ -34,8 +34,7 @@
                     <div class="buttons">
                         <h4 style="color:white;"><span class="badge bg-secondary">Saldo anda : {{$ud->CustomerSaldo}}</span></h4>
                         <a href="" class="btn btn-success"> TopUp Saldo</>
-                        <a href="" class="btn btn-warning" style="color:white; margin-left:5px;">Riwayat Transaksi</a>
-                        <a href="" class="btn btn-dark" style="color:white; margin-left:5px;">Riwayat Penjualan</a>
+                        <a href="" class="btn btn-warning" style="color:white; margin-left:5px;">Riwayat Transaksi Pembelian</a>
                     </div>
                 </div>
                 <div class="saldo">

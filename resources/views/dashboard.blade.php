@@ -19,7 +19,7 @@
 
                 @if($role == "Customer") 
                 <div class="kategori-nav">
-                    <a href="">Kategori</a>
+                    <a href="/dashboard/customer/category">Kategori</a>
                 </div>
                 @endif
 
@@ -32,6 +32,7 @@
             </div>
 
             <div class="item-right">
+                <!-- profile picture -->
                 <a href="/profile/main">
                     <div class="profile">
                     @if($role == "Customer") 
