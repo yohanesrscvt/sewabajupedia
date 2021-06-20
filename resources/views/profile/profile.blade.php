@@ -67,8 +67,9 @@
                 </div>
                 <div class="saldo">
                     <h3>Pengaturan akun</h3>
-                    <p>Pengaturan akun yang meliputi edit data diri dan penggantian password</p>
+                    <p>Pengaturan akun yang meliputi edit data diri,penggantian password, dan logout</p>
                     <a href="/profile/edit" class="btn btn-info btn-block">Edit Akun</a>
+                    <a href="/logout" class="btn btn-danger btn-block">Logout</a>
                 </div>
             </div>
         </div>

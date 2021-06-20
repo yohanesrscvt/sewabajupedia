@@ -13,7 +13,6 @@
         <!-- detail pakaian -->
         @foreach($PakaianDetail as $pd)
         <input type="hidden" name="PakaianID" value="{{$pd->PakaianID}}">
-        <input type="hidden" name="PakaianID" value="{{$pd->PakaianID}}">
         <p>{{$pd->PakaianNama}}</p>
         <p>{{$pd->PakaianHarga}}</p>
         <p>{{$pd->DeskripsiSize}}</p>

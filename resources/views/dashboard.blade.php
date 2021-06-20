@@ -22,8 +22,7 @@
             <option value="/set_agent">Agent</option>
         </select><br>
 
-        <a href="/profile/main">My Account</a><br>
-        <a href="/logout">Logout</a>
+        <a href="/profile/main">My Account</a>
 
     <!-- agent -->
     @elseif($role == "Agent")
@@ -42,7 +41,6 @@
         <!-- end change role -->
 
         <a href="/profile/main">My Account</a><br>
-        <a href="/logout">Logout</a>
         <a href="/dashboard/agent/add">Add Product</a>
         <hr>
         <br>
