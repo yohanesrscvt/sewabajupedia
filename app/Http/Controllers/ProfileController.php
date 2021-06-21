@@ -88,6 +88,22 @@ class ProfileController extends Controller
                     'AgentPassword' => $pwd
             ]);
         }
-        return redirect('/profile/main');
+        return redirect('/profile/main')->with('success','Your profile successfully updated');
+    }
+
+    public function ShowTopup(){
+        return view('profile\topup');
+    }
+
+    public function TopUpSaldo(Request $r){
+        DB::table('customers')
+        ->where('CustomerID', session()->get('LoginID'))
+        ->increment('CustomerSaldo',$r->saldo);
+        
+        DB::table('agents')
+        ->where('AgentID', session()->get('LoginID'))
+        ->increment('AgentSaldo',$r->saldo);
+
+        return redirect('/profile/main')->with('success','Your balance successfully added');
     }
 }

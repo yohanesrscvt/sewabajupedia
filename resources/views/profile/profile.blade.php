@@ -33,7 +33,7 @@
                     <p>Menambah saldo dan melihat riwayat transaksi dilakukan</p>
                     <div class="buttons">
                         <h4 style="color:white;"><span class="badge bg-secondary">Saldo anda : {{$ud->CustomerSaldo}}</span></h4>
-                        <a href="" class="btn btn-success"> TopUp Saldo</>
+                        <a href="/profile/topup" class="btn btn-success"> TopUp Saldo</>
                         <a href="" class="btn btn-warning" style="color:white; margin-left:5px;">Riwayat Transaksi Pembelian</a>
                     </div>
                 </div>
@@ -46,6 +46,13 @@
             </div>
         </div>
     </div>
+
+    @if(Session::get('success'))
+        <script>
+            swal("Success", "{{Session::get('success')}}", "success");
+        </script>
+    @endif
+    
     @endsection
     @endforeach
 </body>

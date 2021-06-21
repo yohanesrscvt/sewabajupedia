@@ -1,0 +1,63 @@
+/* content */
+
+.edit-clothes{
+    background-color: #DBF5F0; 
+    gap: 50px;
+    margin: 0 50px;
+    margin-bottom: 50px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.header-edit{
+    font-size: 30px;
+}
+
+.form-new{
+    margin-top: 20px;
+}
+
+.form-new label{
+    font-size: 24px;
+}
+
+.form-new input{
+    width: 100%;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.form-new textarea{
+    width: 100%;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form2{
+    margin-bottom: 20px;
+}
+
+.form2 select{
+    width: 100%;
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.submit-update{
+    background-color: #01C720;
+    border-radius: 10px;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.submit-update a{
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}

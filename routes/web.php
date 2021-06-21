@@ -38,6 +38,8 @@ Route::middleware(['PreventBackButtonMiddleware'])->group(function () {
     Route::get('/profile/main',[ProfileController::class,'ShowProfileMenu'])->middleware('ProfileMenuMiddleware');
     Route::get('/profile/edit',[ProfileController::class,'ShowEditProfileMenu'])->middleware('ProfileMenuMiddleware');
     Route::post('/profile/edit/execution',[ProfileController::class,'PerformEdit']);
+    Route::post('/profile/topup/execution',[ProfileController::class,'TopUpSaldo']);
+    Route::get('/profile/topup',[ProfileController::class,'ShowTopup']);
     Route::get('/profile/back',[ProfileController::class,'ReturnBackDashboard']);
 
     // agent menu

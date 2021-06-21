@@ -14,7 +14,11 @@ class PakaianController extends Controller
                         ->get();
         $SizeData = DB::table('sizes')
                     ->get();
-        return view('agent-role\add-pakaian',['Kategori' => $KategoriData,'Size' => $SizeData]);
+        // agent fetch data function
+        $AgentData = DB::table('agents')
+                        ->where('AgentID',session()->get('LoginID'))
+                        ->get();
+        return view('agent-role\add-pakaian',['Kategori' => $KategoriData,'Size' => $SizeData,'AgentData'=>$AgentData,'role' => 'Agent']);
     }
 
     public function PerformAddPakaian(Request $request){
@@ -46,8 +50,11 @@ class PakaianController extends Controller
         
         $SizeData = DB::table('sizes')
                     ->get();
-        
-        return view('agent-role\edit-pakaian',['PakaianData' => $PakaianData,'Kategori' => $KategoriData,'Size' => $SizeData]);
+        // agent fetch data function
+        $AgentData = DB::table('agents')
+                        ->where('AgentID',session()->get('LoginID'))
+                        ->get();
+        return view('agent-role\edit-pakaian',['PakaianData' => $PakaianData,'Kategori' => $KategoriData,'Size' => $SizeData,'AgentData'=>$AgentData,'role' => 'Agent']);
     }
 
     public function PerformEditPakaian(Request $request){
