@@ -126,15 +126,23 @@ class CustomerController extends Controller
             // if customer use e-wallet, transfer money to agent
             if($r->PaymentMethodID == "PM2"){
 
-                // update customer balance
+                // part1
                 DB::table('customers')
                 ->where('CustomerID', session()->get('LoginID'))
                 ->decrement('CustomerSaldo',$TotalPrice);
-
-                // update agent balance (still bugs, sisanya beres)
+                
+                DB::table('agents')
+                ->where('AgentID', session()->get('LoginID'))
+                ->decrement('AgentSaldo',$TotalPrice);
+                
+                // part2
                 DB::table('agents')
                 ->where('AgentID', $r->AgentID)
                 ->increment('AgentSaldo', (intval($r->LamaSewa) * intval($r->PakaianHarga2)));
+
+                DB::table('customers')
+                ->where('CustomerID', $r->AgentID)
+                ->increment('CustomerSaldo', (intval($r->LamaSewa) * intval($r->PakaianHarga2)));
             }
             var_dump(1); // success
         }
