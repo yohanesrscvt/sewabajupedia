@@ -22,11 +22,10 @@ class CreateTransactionsTable extends Migration
             $table->string('TransactionStatusID');
             $table->string('PaymentMethodID');
             
-            $table->date('TransactionDate');
             $table->integer('Penalty');
-            $table->integer('RentQty');
             $table->date('MulaiSewa');
             $table->date('SelesaiSewa');
+            $table->date('TransactionDate');
 
             $table->primary('TransactionID');
             $table->foreign('CustomerID')->references('CustomerID')->on('customers');
