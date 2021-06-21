@@ -71,6 +71,17 @@
     <div class="content">
     </div>
 
+    <!-- alert message -->
+    @if(Session::get('fail'))
+        <script>
+            swal("Sorry", "{{Session::get('fail')}}", "error");
+        </script>
+    @elseif(Session::get('success'))
+        <script>
+            swal("Transaction Success", "{{Session::get('success')}}", "success");
+        </script>
+    @endif
+    
     <!-- agent -->
     @elseif($role == "Agent")
         <a href="/dashboard/agent/add">Add Product</a>

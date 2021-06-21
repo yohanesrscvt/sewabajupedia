@@ -102,7 +102,8 @@ class CustomerController extends Controller
         // if customer use e-wallet, make sure that customer has sufficient balance
 
         if($r->PaymentMethodID == "PM2" && $r->CustomerSaldo < $TotalPrice){
-            return var_dump(0); // failed
+            //return var_dump(0); // failed
+            return redirect('/dashboard/customer')->with('fail','Your balance is not sufficient for transaction');
         }
         else{
             // insert data to db
@@ -144,7 +145,8 @@ class CustomerController extends Controller
                 ->where('CustomerID', $r->AgentID)
                 ->increment('CustomerSaldo', (intval($r->LamaSewa) * intval($r->PakaianHarga2)));
             }
-            var_dump(1); // success
+            //var_dump(1); // success
+            return redirect('/dashboard/customer')->with('success','Please check your shopping history');
         }
     }
 }
