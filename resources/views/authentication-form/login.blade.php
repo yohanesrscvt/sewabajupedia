@@ -38,7 +38,11 @@
             <!-- alert message -->
             @if(Session::get('fail'))
                 <script>
-                    alert("{{Session::get('fail')}}")
+                    swal("Sorry", "{{Session::get('fail')}}", "error");
+                </script>
+            @elseif(Session::get('success'))
+                <script>
+                    swal("Horay", "{{Session::get('success')}}", "success");
                 </script>
             @endif
             

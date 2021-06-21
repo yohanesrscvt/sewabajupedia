@@ -107,7 +107,7 @@ class AuthenticationController extends Controller
             if($AgentAddAccountStatus) $InsertSuccess++;
 
             // return result
-            if($InsertSuccess == 2) return redirect('/login');
+            if($InsertSuccess == 2) return redirect('/login')->with('success','Now you can login into system with this account');
             else return back()->with('fail','Something wrong, please try again later :(');
         }
     }

@@ -50,7 +50,7 @@
             <!-- alert message -->
             @if(Session::get('fail'))
                 <script>
-                    alert("{{Session::get('fail')}}")
+                    swal("Sorry", "{{Session::get('fail')}}", "error");
                 </script>
             @endif
 
