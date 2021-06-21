@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/homepage.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/agen.css')}}">
 </head>
 <body>
     <!-- navbar -->
@@ -84,21 +85,43 @@
     
     <!-- agent -->
     @elseif($role == "Agent")
-        <a href="/dashboard/agent/add">Add Product</a>
-        <hr>
+    <div class="content2">
+        <div class="list-clothes">
+            <div class="header-list">
+                <p>List Pakaian</p>
+                <a href="/dashboard/agent/add" class="btn btn-info">Add Product</a>
+            </div>
 
-        <!-- product view -->
-        @foreach($PakaianData as $pd)
-            <hr>
-            <img src="{{asset('storage/' . $pd->PakaianGambar)}}" alt="" height="50px" width="50px">
-            <p>{{$pd->PakaianNama}}</p><br>
-            <p>Rp. {{$pd->PakaianHarga}}/hari</p><br>
-            <p>Rating {{$pd->PakaianRating}} of 5</p>
-            <a href="/dashboard/agent/edit/{{$pd->PakaianID}}">Edit</a>
-            <a href="/dashboard/agent/delete/{{$pd->PakaianID}}/execution">Hapus</a>
-            <hr>
-        @endforeach
-        <!-- end product view -->
+            <div class="list-per-clothes">
+                <!-- looping here -->
+                @foreach($PakaianData as $pd)
+                <div class="clothes-card">
+                    <img src="{{asset('storage/' . $pd->PakaianGambar)}}" alt="" height="50px" width="50px">
+                    <div class =card2>
+                        <div class="card-text">
+                            <p>{{$pd->PakaianNama}}</p>
+                            <p class="price">Rp. {{$pd->PakaianHarga}}/hari</p>
+                            <div class="stars">
+                                &#9733; {{$pd->PakaianRating}} of 5
+                            </div>
+                        </div>
+                        <div class ="edit-delete">
+                            <a href="/dashboard/agent/edit/{{$pd->PakaianID}}"class="btn btn-success">Edit</a>
+                            <a href="/dashboard/agent/delete/{{$pd->PakaianID}}/execution" class="btn btn-danger">Hapus</a>
+                        </div>
+                    </div> 
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    @if(Session::get('success'))
+        <script>
+            swal("Success", "{{Session::get('success')}}", "success");
+        </script>
+    @endif
+
     @endif
     @endsection
 </body>

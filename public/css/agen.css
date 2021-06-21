@@ -1,0 +1,104 @@
+/* content */
+.profile-pict{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.profile-pict img{
+    width: 50px;
+    height: 50px;
+    margin-left: 50px;
+}
+
+.header-list{
+    font-size: 30px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.list-clothes{
+    background-color: #DBF5F0; 
+    gap: 50px;
+    margin: 0 50px;
+    margin-bottom: 50px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.list-per-clothes{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+}
+
+.clothes-card{
+    color: black;
+    text-decoration: none;
+    background-color: white;
+    width: 300px;
+    margin: 10px 10px;
+    border-radius: 10px;
+}
+
+.clothes-card>img{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+.card-text{
+    padding: 10px  15px;
+    font-size: 24px;
+}
+
+.card-text p{
+    padding: 5px 0;
+}
+
+.price{
+    font-size: 15px;
+}
+
+.star{
+    padding: 5px 15px;
+    /* font-size: 80px; */
+}
+
+.card2{
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-delete{
+    margin-top: 15px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.edit{
+    margin-bottom: 5px;
+    width: 45px;
+    background-color: #01C720;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.edit a{
+    text-decoration: none;
+    color: white;
+}
+
+.hapus{
+    margin-bottom: 5px;
+    width: 45px;
+    background-color: #C70101;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.hapus a{
+    color: white;
+    text-decoration: none;
+}

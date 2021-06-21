@@ -32,7 +32,7 @@ class PakaianController extends Controller
             'StockQty' => $request->stock,
             'PakaianRating' => 0
         ]);
-        return redirect('/dashboard/agent');
+        return redirect('/dashboard/agent')->with('success','Item successfully added');
     }
 
     public function ShowEditPakaian($id){
@@ -78,7 +78,7 @@ class PakaianController extends Controller
                 'PakaianGambar' => $request->file('gambar')->store('cloth-images')
             ]);
         }
-        return redirect('/dashboard/agent');
+        return redirect('/dashboard/agent')->with('success','Item successfully editted');;
     }
 
     public function PerformDeletePakaian($id){
@@ -87,6 +87,6 @@ class PakaianController extends Controller
         ->where('AgentID',session()->get('LoginID'))
         ->delete();
 
-        return redirect('/dashboard/agent');
+        return redirect('/dashboard/agent')->with('success','Item successfully deleted');;
     }
 }
