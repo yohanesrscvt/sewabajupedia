@@ -41,6 +41,7 @@ Route::middleware(['PreventBackButtonMiddleware'])->group(function () {
     Route::post('/profile/topup/execution',[ProfileController::class,'TopUpSaldo']);
     Route::get('/profile/topup',[ProfileController::class,'ShowTopup']);
     Route::get('/profile/back',[ProfileController::class,'ReturnBackDashboard']);
+    Route::get('/profile/history-transaction',[ProfileController::class,'ViewHistory']);
 
     // agent menu
     Route::get('/dashboard/agent/add',[PakaianController::class,'ShowAddPakaian'])->middleware('AgentRoleMiddleware');

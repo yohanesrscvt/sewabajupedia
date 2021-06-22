@@ -106,4 +106,14 @@ class ProfileController extends Controller
 
         return redirect('/profile/main')->with('success','Your balance successfully added');
     }
+
+    public function ViewHistory(){
+        // get transaction list
+        $TransactionData = DB::table('transactions')
+                    ->join('pakaians','transactions.PakaianID','=','pakaians.PakaianID')
+                    ->where('transactions.CustomerID',session()->get('LoginID'))
+                    ->get();
+        return view('profile\history',['TransactionData' => $TransactionData]);
+        // var_dump($TransactionData);
+    }
 }
