@@ -49,6 +49,7 @@
             <div class="already-login">
                 <p>Belum memiliki akun?</p>
                 <a href="/register">Daftar Sekarang</a>
+                <p></p>
             </div>
         </div>
     </div>
